@@ -45,6 +45,9 @@ function dummy = BrainMessage(message,outname)
     % Convert all letters to uppercase
     message = upper(message);
     
+    % remove symbols we do not have
+    message(regexp(message,'[^A-Z0-9]'))=[]
+    
     % Create data matrix to hold data we are mixing
     matrix = zeros(size(timecourses,1),size(template_img,1)*size(template_img,2)*size(template_img,3));
     
@@ -133,4 +136,3 @@ function dummy = BrainMessage(message,outname)
     end
    
 end
-   
