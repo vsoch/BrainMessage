@@ -10,15 +10,15 @@
 
 function dummy = BrainMessage(message,outname)
 
-    template_hdr = spm_vol('mr\fMRI.nii');
+    template_hdr = spm_vol('mr/fMRI.nii');
     template_img = spm_read_vols(template_hdr);
 
     % Read in letters templates
-    load('data\BrainLetters.mat');
+    load('data/BrainLetters.mat');
     letters_dim = size(letters(:,:,1));
     
     % Read in timecourse templates
-    load('data\timecourses.mat');
+    load('data/timecourses.mat');
     
     % Calculate the padding
     diff_x = size(template_img,2) - letters_dim(2); diff_x = floor(diff_x / 2);
